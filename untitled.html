@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+}
+
+.slider-container {
+    position: relative;
+    width: 300px; /* Set the desired width */
+    overflow: hidden;
+}
+
+.slider {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.bodecard {
+    min-width: 300px; /* Match the width of the slider container */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    margin-right: 20px; /* Space between cards */
+}
+
+.slider-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+    </style>
+    <title>Slider</title>
+</head>
+<body>
+    <div class="slider-container">
+        <div class="slider">
+            <div class="bodecard">
+                <div class="bodecard-heade" style="margin-bottom:40px">
+                    <img src="5.png" style="border: 1px solid #f0f0f0">
+                    <h1 class="bodecard-heade-head" style="color: black;">Pubg Mobile <span class="follow" style="color: black;">Follow</span></h1>
+                    <p class="bodecard-heade-descr" style="color: black;">25k Net Followers</p>
+                </div>
+                <div class="bodecard-main">
+                    <h1 class="bodecard-main-head-2">Mtaa Wa Pubg Gamers</h1>
+                    <p class="bodecard-main-descr-2">Karibu Mtaa Huu Wa Pubg Mobile, Hapa Utapata Taarifa Zote Zinazohusiana Na Gemu Hili. Michezo, Matukio Na Habari Mbalimbali. Jiunge Na Mtaa Huu Sasa Uweze Kupata Nafasi Ya Kucheza Mashindano Ya Pubg Mobile. 
+                        <span style="float: right;color: grey;font-size: 16px"><i class="ri-arrow-right-line"></i></span>
+                    </p>
+                </div>
+            </div>
+            <div class="bodecard">
+                <div class="bodecard-heade" style="margin-bottom:40px">
+                    <img src="5.png" style="border: 1px solid #f0f0f0">
+                    <h1 class="bodecard-heade-head" style="color: black;">Another Game <span class="follow" style="color: black;">Follow</span></h1>
+                    <p class="bodecard-heade-descr" style="color: black;">30k Net Followers</p>
+                </div>
+                <div class="bodecard-main">
+                    <h1 class="bodecard-main-head-2">Mtaa Wa Another Gamers</h1>
+                    <p class="bodecard-main-descr-2">Karibu Mtaa Huu Wa Another Game, Hapa Utapata Taarifa Zote Zinazohusiana Na Gemu Hili. Michezo, Matukio Na Habari Mbalimbali. Jiunge Na Mtaa Huu Sasa Uweze Kupata Nafasi Ya Kucheza Mashindano Ya Another Game. 
+                        <span style="float: right;color: grey;font-size: 16px"><i class="ri-arrow-right-line"></i></span>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <button class="slider-button prev">❮</button>
+        <button class="slider-button next">❯</button>
+    </div>
+
+    <script>javascript
+let currentIndex = 0;
+const cards = document.querySelectorAll('.bodecard');
+const totalCards = cards.length;
+
+document.querySelector('.next').addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % totalCards;
+    updateSlider();
+});
+
+document.querySelector('.prev').addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + totalCards) % totalCards;
+    updateSlider();
+});
+
+function updateSlider() {
+    const slider = document.querySelector('.slider');
+    const offset = -currentIndex * 300; // Match the width set in CSS
+    slider.style.transform = `translateX(${offset}px)`;
+}
+</script>
+</body>
+</html>
